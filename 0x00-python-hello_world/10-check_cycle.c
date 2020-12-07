@@ -12,14 +12,13 @@ int check_cycle(listint_t *list)
 	slow = list;
 	fast = list;
 
-	while (fast != NULL)
+	if (list == NULL)
+		return (0);
+
+	while (fast && fast->next)
 	{
 		slow = slow->next;
-		fast = fast->next;
-		if (fast->next == NULL)
-			return (0);
-
-		fast = fast->next;
+		fast = fast->next->next;
 		if (slow == fast)
 			return (1);
 	}
