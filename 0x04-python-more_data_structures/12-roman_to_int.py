@@ -12,3 +12,5 @@ def roman_to_int(roman_string):
         if roman_string[:2] in dic2.keys():
             return dic2[roman_string[:2]] + roman_to_int(roman_string[2:])
         return dic1[roman_string[:1]] + roman_to_int(roman_string[1:])
+
+    return(0)
