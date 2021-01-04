@@ -92,7 +92,7 @@ void print_python_bytes(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	int prec = 1;
-	double rem;
+	float rem;
 	double val;
 
 	printf("[.] float object info\n");
@@ -104,12 +104,12 @@ void print_python_float(PyObject *p)
 	}
 
 	val = ((PyFloatObject *)p)->ob_fval * pow(10, prec);
-	rem = val - (int)val;
-	while (prec < 15 && ((rem > 0.01) || (rem < -0.01)))
+	rem = val - round(val);
+	while (prec < 20 && ((rem > 0.01) || (rem < -0.01)))
 	{
 		prec += 1;
 		val = ((PyFloatObject *)p)->ob_fval * pow(10, prec);
-		rem = val - (int)val;
+		rem = val - round(val);
 	}
 	val = ((PyFloatObject *)p)->ob_fval;
 	printf("  value: %.*f\n", prec, val);
