@@ -111,9 +111,6 @@ void print_python_float(PyObject *p)
 		val = ((PyFloatObject *)p)->ob_fval * pow(10, prec);
 		rem = val - (int)val;
 	}
-	printf("Precision is %i\n", prec);
-
-
 	val = ((PyFloatObject *)p)->ob_fval;
 	printf("  value: %.*f\n", prec, val);
 	fflush(stdout);
