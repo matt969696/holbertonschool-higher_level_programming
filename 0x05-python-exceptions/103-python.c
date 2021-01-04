@@ -91,10 +91,8 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_float(PyObject *p)
 {
-	int prec = 1;
-	double rem;
-	long double val;
-	double val2;
+	double val;
+	char *valstr;
 
 	printf("[.] float object info\n");
 
@@ -104,15 +102,8 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	val = ((PyFloatObject *)p)->ob_fval * pow(10, prec);
-	rem = val - round(val);
-	while (prec < 20 && ((rem > 0.0000001) || (rem < -0.0000001)))
-	{
-		prec += 1;
-		val = ((PyFloatObject *)p)->ob_fval * pow(10, prec);
-		rem = val - round(val);
-	}
-	val2 = ((PyFloatObject *)p)->ob_fval;
-	printf("  value: %.*f\n", prec, val2);
+	val = ((PyFloatObject *)p)->ob_fval;
+	valstr = PyOS_double_to_string(val, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", valstr);
 	fflush(stdout);
 }
