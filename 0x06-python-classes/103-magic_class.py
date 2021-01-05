@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"""
+MagicClass : A great module to make some amazing magic math on a circle
+"""
 import math
-""" MagicClass : Class description"""
 
 
 class MagicClass:
@@ -13,7 +15,8 @@ class MagicClass:
     area
     circumference
     """
-    def __init__(self, radius):
+
+    def __init__(self, radius=0):
         """ Init function """
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
@@ -22,7 +25,7 @@ class MagicClass:
 
     def area(self):
         """ return area """
-        return (self.__radius ** 2 * math.pi)
+        return ((self.__radius ** 2) * math.pi)
 
     def circumference(self):
         """ retrun circumference """
