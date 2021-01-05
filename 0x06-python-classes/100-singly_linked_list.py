@@ -88,7 +88,7 @@ class SinglyLinkedList:
         """
         cur = self.__head
 
-        if cur is None or cur.data > value:
+        if cur is None or cur.data >= value:
             newnode = Node(value, cur)
             self.__head = newnode
         else:
