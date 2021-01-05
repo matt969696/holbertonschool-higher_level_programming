@@ -76,14 +76,11 @@ class SinglyLinkedList:
         """
         out = ""
         cur = self.__head
-        if cur is None:
-            return '\n'
         while cur is not None:
             out = out + str(cur.data)
             cur = cur.next_node
-            if cur is not None:
-                out = out + '\n'
-        return out
+            out = out + '\n'
+        return out[:-1]
 
     def sorted_insert(self, value):
         """ inserts a new Node into the correct sorted
