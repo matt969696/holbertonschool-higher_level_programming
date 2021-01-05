@@ -2,6 +2,7 @@
 import math
 """ MagicClass : Class description"""
 
+
 class MagicClass:
     """ MagicClass
 
