@@ -55,7 +55,9 @@ class Square:
             if len(position) == 2:
                 if isinstance(position[0], int):
                     if isinstance(position[1], int):
-                        iscorrect = 1
+                        if position[0] >= 0 and position[1] >= 0:
+                            iscorrect = 1
+
         if iscorrect:
             self.__position = position
         else:
