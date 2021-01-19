@@ -43,8 +43,9 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """ Init method for Square class"""
-        self.__size = size
+        self.integer_validator("size", size)
         super().__init__(size, size)
+        self.__size = size
 
     def __str__(self):
         """ Print the square dimensions"""
