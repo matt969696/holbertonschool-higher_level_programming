@@ -19,16 +19,16 @@ def main():
             if "heap" in line:
                 m = re.match(r'([0-9A-Fa-f]+)-([0-9A-Fa-f]+) ([-r])', line)
                 start = int(m.group(1), 16)
-                print ("{:02x}".format(start))
+                print("{:02x}".format(start))
                 end = int(m.group(2), 16)
-                print ("{:02x}".format(end))
+                print("{:02x}".format(end))
                 break
 
     with open("/proc/{:d}/mem".format(int(pid)), "rb+") as mem:
         mem.seek(start)
         myread = mem.read(end - start)
         found = myread.find(searched.encode())
-        print ("{:02x}".format(found))
+        print("{:02x}".format(found))
         mem.seek(start + found)
 
         mem.write(replacing.encode() + b'\x00')
@@ -36,10 +36,7 @@ def main():
         mem.seek(start)
         myread = mem.read(end - start)
         found = myread.find(searched.encode())
-        print ("{:02x}".format(found))
-
-
-
+        print("{:02x}".format(found))
 
 if __name__ == "__main__":
     main()
