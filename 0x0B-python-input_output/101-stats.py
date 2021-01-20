@@ -31,6 +31,7 @@ if __name__ == "__main__":
         for key, value in sorted(statusdict.items()):
             print("{}: {}".format(key, value))
             raise
-    print("File size: {}".format(size))
-    for key, value in sorted(statusdict.items()):
-        print("{}: {}".format(key, value))
+    if nbline % 10 != 0:
+        print("File size: {}".format(size))
+        for key, value in sorted(statusdict.items()):
+            print("{}: {}".format(key, value))
