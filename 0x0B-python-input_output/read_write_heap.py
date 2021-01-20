@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/python3
 """ Try to replace string in heap running process """
 import re
 import sys
