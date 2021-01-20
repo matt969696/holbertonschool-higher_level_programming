@@ -15,22 +15,20 @@ if __name__ == "__main__":
             if value != 0:
                 print("{}: {}".format(key, value))
 
-
-
+    nbline = 0
     try:
-        nbline = 0
         for line in sys.stdin:
-            try:
-                linetok = line.split(" ")
-                if len(linetok) != 9:
-                    continue
-                nbline += 1
-                size += int(linetok[8])
-                stat = int(linetok[7])
+            linetok = line.split(" ")
+            if len(linetok) >= 2:
+                stat = int(linetok[-2])
                 if stat in statdict:
                     statdict[stat] += 1
-            except:
-                pass
+                    nbline += 1
+
+                try:
+                    size += int(linetok[-1])
+                except:
+                    continue
 
             if nbline % 10 == 0:
                 displaystat(size, statdict)
