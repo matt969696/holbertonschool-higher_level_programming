@@ -10,7 +10,7 @@ if __name__ == "__main__":
     try:
         nbline = 0
         for line in sys.stdin:
-            linetok = line.split()
+            linetok = line.split(" ")
             if len(linetok) != 9:
                 continue
             nbline += 1
@@ -30,3 +30,7 @@ if __name__ == "__main__":
         print("File size: {}".format(size))
         for key, value in sorted(statusdict.items()):
             print("{}: {}".format(key, value))
+            raise
+    print("File size: {}".format(size))
+    for key, value in sorted(statusdict.items()):
+        print("{}: {}".format(key, value))
