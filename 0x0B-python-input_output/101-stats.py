@@ -7,6 +7,16 @@ if __name__ == "__main__":
     """ Code to retrieve and display datas"""
     size = 0
     statdict = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+
+    def displaystat(size, statdict):
+        """ function to print the stats"""
+        print("File size: {}".format(size))
+        for key, value in sorted(statdict.items()):
+            if value != 0:
+                print("{}: {}".format(key, value))
+
+
+
     try:
         nbline = 0
         for line in sys.stdin:
@@ -23,18 +33,9 @@ if __name__ == "__main__":
                 pass
 
             if nbline % 10 == 0:
-                print("File size: {}".format(size))
-                for key, value in sorted(statdict.items()):
-                    if value != 0:
-                        print("{}: {}".format(key, value))
+                displaystat(size, statdict)
 
     except KeyboardInterrupt:
-        print("File size: {}".format(size))
-        for key, value in sorted(statdict.items()):
-            if value != 0:
-                print("{}: {}".format(key, value))
-            raise
-    print("File size: {}".format(size))
-    for key, value in sorted(statdict.items()):
-        if value != 0:
-            print("{}: {}".format(key, value))
+        displaystat(size, statdict)
+        raise
+    displaystat(size, statdict)
