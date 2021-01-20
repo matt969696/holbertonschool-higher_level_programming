@@ -15,23 +15,21 @@ if __name__ == "__main__":
             if value != 0:
                 print("{}: {}".format(key, value))
 
-    nbline = 0
+    nbline = 1
     try:
         for line in sys.stdin:
-            linetok = line.split(" ")
-            if len(linetok) >= 2:
+            try :
+                linetok = line.split(" ")
                 stat = int(linetok[-2])
                 if stat in statdict:
                     statdict[stat] += 1
-                    nbline += 1
-
-                try:
                     size += int(linetok[-1])
-                except:
-                    continue
+            except:
+                pass
 
             if nbline % 10 == 0:
                 displaystat(size, statdict)
+            nbline += 1
 
     except KeyboardInterrupt:
         displaystat(size, statdict)
