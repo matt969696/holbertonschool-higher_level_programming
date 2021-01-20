@@ -18,7 +18,7 @@ if __name__ == "__main__":
     nbline = 1
     try:
         for line in sys.stdin:
-            try :
+            try:
                 linetok = line.split(" ")
                 stat = int(linetok[-2])
                 if stat in statdict:
