@@ -1,0 +1,10 @@
+--  lists all shows without the genre Comedy
+-- in the database hbtn_0d_tvshows
+SELECT d.title
+FROM tv_shows d
+WHERE d.title NOT IN (SELECT a.title
+FROM tv_shows a
+LEFT JOIN tv_show_genres b ON a.id = b.show_id
+LEFT JOIN tv_genres c ON b.genre_id = c.id
+WHERE c.name = 'Comedy')
+ORDER BY title;
