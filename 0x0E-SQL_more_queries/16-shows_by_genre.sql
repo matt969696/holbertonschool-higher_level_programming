@@ -1,0 +1,7 @@
+-- lists all Comedy shows
+-- in the database hbtn_0d_tvshows
+SELECT a.title, c.name
+FROM tv_shows a
+LEFT JOIN tv_show_genres b on a.id = b.show_id
+LEFT JOIN tv_genres c on b.genre_id = c.id
+ORDER by title, name;
