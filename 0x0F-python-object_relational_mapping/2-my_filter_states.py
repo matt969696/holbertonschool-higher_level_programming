@@ -18,7 +18,9 @@ def main():
     db = MySQLdb.connect(host=myh, port=3306, user=myu,
                          passwd=myp, db=myd)
     cur = db.cursor()
-    myquery = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(mys)
+    myquery = "SELECT * FROM states\
+    WHERE name LIKE BINARY '{}'\
+    ORDER BY id".format(mys)
     cur.execute(myquery)
     rows = cur.fetchall()
     for row in rows:
