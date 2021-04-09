@@ -13,7 +13,7 @@ def main():
         myj = json[i]
         print("{}: {}".format(myj.get("sha"),
                               myj.get("commit").get("author").get("name")))
-        if i == 10:
+        if i == 9:
             break
 
 if __name__ == "__main__":
