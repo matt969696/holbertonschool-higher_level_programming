@@ -1,5 +1,5 @@
 #!/usr/bin/node
-/* Task 3 */
+/* Task 4 */
 
 const request = require('request');
 const url = process.argv[2];
@@ -10,7 +10,7 @@ request(url, function (error, response, body) {
   } else {
     const jO = JSON.parse(body);
     let total = 0;
-    for (let i = 0; i < jO.count; i++) {
+    for (let i = 0; i < jO.results.length; i++) {
       for (let j = 0; j < jO.results[i].characters.length; j++) {
         if (jO.results[i].characters[j].includes('18')) {
           total++;
