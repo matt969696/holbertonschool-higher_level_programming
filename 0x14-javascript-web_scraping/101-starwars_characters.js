@@ -14,18 +14,14 @@ request(url, async function (error, response, body) {
       const mybody = await downloadPage(charurl);
       const jC = JSON.parse(mybody);
       console.log(jC.name);
-      }
     }
+  }
 });
-
 
 function downloadPage (url) {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
       if (error) reject(error);
-      if (response.statusCode != 200) {
-        reject('Invalid status code <' + response.statusCode + '>');
-      }
       resolve(body);
     });
   });
